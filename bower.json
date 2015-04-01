@@ -1,0 +1,9 @@
+{
+  "name": "sonja",
+  "version": "0.0.0",
+  "authors": [
+    "stephanschmid <stephanbschmid@gmail.com>"
+  ],
+  "description": "Responsive grid system from Stephan Schmid",
+  "license": "MIT"
+}
