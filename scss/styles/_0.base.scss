@@ -1,140 +1,110 @@
-/*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
-
-/*
- * What follows is the result of much research on cross-browser styling.
- * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
- * Kroc Camen, and the H5BP dev community and team.
- */
-
-/* ==========================================================================
-   Base styles: opinionated defaults
-   ========================================================================== */
+// ==========================================================================
+// Base styles: opinionated defaults
+// ========================================================================== */
 
 * {
-	@include box-sizing(border-box);
-	outline: none;
-	-webkit-tap-highlight-color: transparent;
-	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    @include box-sizing(border-box);
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 html {
-	-webkit-text-size-adjust: 100%;
-	-ms-text-size-adjust: 100%;
-	background-color: $white;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    background-color: $grey;
 
-	@include mobile {
-		height:100%;
-	}
+    @include mobile {
+        height: 100%;
+    }
 }
 
 body {
-	@extend %body-font;
-	@include font-size($base-font-size);
-	line-height: $base-line-height;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+    @extend %body-font;
+    @include font-size($font-size);
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    line-height: $base-line-height;
 }
+
 input {
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
 }
-::selection {
-	background: #EE162D;
-	color: $white;
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @include hyphens(auto);
 }
-::-moz-selection {
-	background: #EE162D;
-	color: $white;
-}
-p, h1, h2, h3, h4, h5, h6 {
-	@include hyphens(auto);
-}
+
 html,
 button,
 input,
 select,
 textarea {
-  color: $black;
+    color: $grey4;
 }
 
-/*
- * Remove text-shadow in selection highlight: h5bp.com/i
- * These selection rule sets have to be separate.
- * Customize the background color to match your design.
- */
+// Remove text-shadow in selection highlight: h5bp.com/i
+// These selection rule sets have to be separate.
+// Customize the background color to match your design.
 
-/*
- * A better looking default horizontal rule
- */
+// A better looking default horizontal rule
 
 hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #ccc;
-  margin: 1em 0;
-  padding: 0;
+    border-top: 1px solid $black;
+    border: 0;
+    display: block;
+    height: 1px;
+    margin: 1em 0;
+    padding: 0;
 }
 
-/*
- * Remove the gap between images, videos, audio and canvas and the bottom of
- * their containers: h5bp.com/i/440
- */
+// Remove the gap between images, videos, audio and canvas and the bottom of
+// their containers: h5bp.com/i/440
 
 audio,
 canvas,
 img,
 video {
-  vertical-align: middle;
+    vertical-align: middle;
 }
 
-/*
- * Remove default fieldset styles.
- */
+// Remove default fieldset styles.
 
 fieldset {
-  border: 0;
-  margin: 0;
-  padding: 0;
+    border: 0;
+    margin: 0;
+    padding: 0;
 }
 
-/*
- * Allow only vertical resizing of textareas.
- */
+// Allow only vertical resizing of textareas.
 
 textarea {
-  resize: vertical;
+    resize: vertical;
 }
 
-/* Make HTML 5 elements display block-level for consistent styling */
-header, aside, section, nav, article, footer, address {
-	display: block;
+// Make HTML 5 elements display block-level for consistent styling
+header,
+aside,
+section,
+nav,
+article,
+footer,
+address {
+    display: block;
 }
 
-/* ==========================================================================
-   Browse Happy prompt
-   ========================================================================== */
+// ==========================================================================
+// Author's custom styles
+// ========================================================================== */
 
-.browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
-}
-
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-
-.box {
-	width: 100%;
-	height: 100px;
-	text-align: center;
-	line-height: 100px;
-	color: $white;
-	background-color: orange;
-
-	&.box-2 {
-		background-color: lightcoral;
-	}
+input:disabled,
+button:disabled,
+.input-is-disabled {
+    @include opacity(.5);
 }

@@ -1,262 +1,256 @@
 
 .site-container {
-	min-height: 100%;
-	overflow: hidden;
+    min-height: 100%;
+    overflow: hidden;
 }
 
 .site-content {
-	position: relative;
-	overflow: hidden;
-	clear: both;
+    clear: both;
+    overflow: hidden;
+    position: relative;
 }
 
 .l-clearfix {
-	@extend %clearfix;
+    @extend %clearfix;
 }
 
 .l-site-width {
-	position: relative;
-	width: $site-width;
-	width: ($site-width / $base-font-size) * 1rem;
-	margin: 0 auto;
-	@extend %clearfix;
+    @extend %clearfix;
+    margin: 0 auto;
+    position: relative;
+    width: $site-width;
 
-	@include tablet {
-		@include box-sizing(border-box);
-		width: auto;
-		padding: 0 20px;
-	}
+    @include tablet {
+        @include box-sizing(border-box);
+        padding: 0 20px;
+        width: auto;
+    }
 }
 
 .l-site-padding {
 
-//	@include mobile {
-//		padding-left: 15px;
-//		padding-right: 15px;
-//	}
+//    @include mobile {
+//        padding-left: 15px;
+//        padding-right: 15px;
+//    }
 }
 
 // lists
 .l-horizontal-list {
-	list-style: none;
-	margin: 0; padding: 0;
-	> li {
-		@include inline-block(top);
-	}
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    > li {
+        @include inline-block(top);
+    }
 }
+
 .l-horizontal {
-	@include webkit-inline-block-fix;
-	> * {
-		@include inline-block(top);
-	}
-}
-.l-horizontal-samewidth-list {
-	list-style: none;
-	margin: 0; padding: 0;
-	width: 100%;
-	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-	> li {
-		-webkit-box-flex: 1;
-		-moz-box-flex: 1;
-		width: 500px;
-		-webkit-flex: 1;
-		-ms-flex: 1;
-		flex: 1;
-	}
+    @include webkit-inline-block-fix;
+    > * {
+        @include inline-block(top);
+    }
 }
 
 .lt-ie10 {
-	.l-horizontal-samewidth-list {
-		display: table;
-		table-layout: fixed;
-		> li {
-			width: auto;
-			height: 100%;
-			display: table-cell;
-		}
-	}
+    .l-horizontal-samewidth-list {
+        display: table;
+        table-layout: fixed;
+
+        > li {
+            display: table-cell;
+            height: 100%;
+            width: auto;
+        }
+    }
 }
 // column layouts
 
 .l-row {
-	margin-right: -($gutter + 1px);
-	font-size: 0.0000001px;
+    font-size: .0000001px;
+    margin-right: -($gutter + 1px);
 }
 
 .l-row-right {
-	text-align: right;
+    text-align: right;
 }
-
-
-
 
 .l-column {
-	@include box-sizing(border-box);
-	@include inline-block(top);
-	padding-right: $gutter;
-	@include font-size($base-font-size);
+    @include box-sizing(border-box);
+    @include inline-block(top);
+    @include font-size($base-font-size);
+    padding-right: $gutter;
 
-	&.l-mobile-borderless {
-		padding: 0;
-		padding-right: 20px;
-	}
+    &.l-mobile-borderless {
+        padding: 0;
+        padding-right: 20px;
+    }
 }
-
 
 // Gaps on top or bottom
 
 .l-no-gap {
-	margin: 0px !important;
+    margin: 0px !important;
 }
 
-.l-row-gap, .l-row.l-row-gap > .l-column,
+.l-row-gap,
+.l-row.l-row-gap > .l-column,
 .l-row.l-row-gap > .l-column {
-	margin-bottom: $gutter;
-}
-.l-gap.l-gap-small, .l-row.l-row-gap.l-row-gap-small > .l-column {
-	margin-bottom: $gutter / 2;
-}
-.l-gap.l-gap-large, .l-row.l-row-gap.l-row-gap-large > .l-column {
-	margin-bottom: $gutter * 2;
-}
-.l-row.l-row-gap {
-	margin-bottom: 0;
+    margin-bottom: $gutter;
 }
 
+.l-gap.l-gap-small,
+.l-row.l-row-gap.l-row-gap-small > .l-column {
+    margin-bottom: $gutter / 2;
+}
+
+.l-gap.l-gap-large,
+.l-row.l-row-gap.l-row-gap-large > .l-column {
+    margin-bottom: $gutter * 2;
+}
+
+.l-row.l-row-gap {
+    margin-bottom: 0;
+}
 
 .l-row-gap-above {
-	margin-top: $gutter;
+    margin-top: $gutter;
 }
+
 .l-row-gap-above.l-row-gap-above-small {
-	margin-top: $gutter / 2;
+    margin-top: $gutter / 2;
 }
+
 .l-row-gap-above.l-row-gap-above-large {
-	margin-top: $gutter * 2;
+    margin-top: $gutter * 2;
 }
+
 .l-row.l-row-gap.l-row-gutter {
-	margin-bottom: $gutter * -1;
+    margin-bottom: $gutter * -1;
 }
-
-
-
-
-
 
 // Generate columns for all screens
 
 $columns: 12;
 $precperc: 99.999%;
 
-@mixin rowMath($totalColumns, $precperc, $device:"") {
-	@if $device != "" {
-		$device : $device + "-"
-	}
-	@for $i from 1 through $totalColumns {
-		.#{l-column}-#{$device}#{$i} {
-			width: $precperc / $totalColumns * $i;
-		}
-	}
+@mixin row-math($total-columns, $precperc, $device:'') {
+    @if $device != '' {
+        $device : $device + '-';
+    }
+    @for $i from 1 through $total-columns {
+        .#{l-column}-#{$device}#{$i} {
+            width: $precperc / $total-columns * $i;
+        }
+    }
 }
 
 // Desktop
-@include rowMath($columns, $precperc);
+@include row-math($columns, $precperc);
 
 // Other Devices
 @include print {
-	@include rowMath($columns, $precperc, "print");
+    @include row-math($columns, $precperc, 'print');
 }
+
 @include tablet {
-	@include rowMath($columns, $precperc, "tablet");
+    @include row-math($columns, $precperc, 'tablet');
 }
+
 @include tablet-portrait {
-	@include rowMath($columns, $precperc, "tablet-portrait");
+    @include row-math($columns, $precperc, 'tablet-portrait');
 }
+
 @include mobile {
-	@include rowMath($columns, $precperc, "mobile");
+    @include row-math($columns, $precperc, 'mobile');
 }
+
 @include mobile-portrait {
-	@include rowMath($columns, $precperc, "mobile-portrait");
+    @include row-math($columns, $precperc, 'mobile-portrait');
 }
 
-/*
-l-column-*
-l-column-tablet-*
-l-column-tablet-portrait-*
-l-column-mobile-*
-l-column-mobile-portrait-*
-*/
-
-
-
-
-
-
+// l-column-*
+// l-column-tablet-*
+// l-column-tablet-portrait-*
+// l-column-mobile-*
+// l-column-mobile-portrait-*
 
 // Left or right classes
 
 .l-leftright {
-	@extend %clearfix;
-	.l-left {
-		display: block;
-		float: left;
-	}
-	.l-right {
-		display: block;
-		float: right;
-	}
+    @extend %clearfix;
+
+    .l-left {
+        display: block;
+        float: left;
+    }
+
+    .l-right {
+        display: block;
+        float: right;
+    }
 }
+
 .l-leftright-table {
-	display: table;
-	width: 100%;
-	@include box-sizing(border-box);
+    @include box-sizing(border-box);
+    display: table;
+    width: 100%;
 
-	.l-left, .l-right {
-		display: table-cell;
-		vertical-align: middle;
-	}
-	.l-right {
-		text-align: right;
-	}
-}
-@mixin leftrightClasses( $device ) {
-	.l-leftright.l-#{$device}-leftright-reset {
-		.l-left, .l-right {
-			float: none;
-		}
-	}
-	.l-leftright-table.l-#{$device}-leftright-reset {
-		display: block;
+    .l-left,
+    .l-right {
+        display: table-cell;
+        vertical-align: middle;
+    }
 
-		.l-left, .l-right {
-			display: block;
-			text-align: left;
-		}
-	}
+    .l-right {
+        text-align: right;
+    }
 }
+
+@mixin leftright-classes($device) {
+    .l-leftright.l-#{$device}-leftright-reset {
+        .l-left,
+        .l-right {
+            float: none;
+        }
+    }
+
+    .l-leftright-table.l-#{$device}-leftright-reset {
+        display: block;
+
+        .l-left,
+        .l-right {
+            display: block;
+            text-align: left;
+        }
+    }
+}
+
 @include tablet {
-	@include leftrightClasses( "tablet" );
+    @include leftright-classes('tablet');
 }
+
 @include tablet-portrait {
-	@include leftrightClasses( "tablet-portrait" );
+    @include leftright-classes('tablet-portrait');
 }
+
 @include mobile {
-	@include leftrightClasses( "mobile" );
+    @include leftright-classes('mobile');
 }
+
 @include mobile-portrait {
-	@include leftrightClasses( "mobile-portrait" );
+    @include leftright-classes('mobile-portrait');
 }
 
+.l-left-float {
+    float: left;
+}
 
-.l-left-float{
-	float: left;
+.l-right-float {
+    float: right;
 }
-.l-right-float{
-	float: right;
-}
-.l-clear-float{
-	clear: left;
+
+.l-clear-float {
+    clear: left;
 }

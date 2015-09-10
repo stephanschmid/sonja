@@ -4,26 +4,36 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:100,300,400,500);
 
 // base path
-$base-path: "/bundles/edge5frontend";
-
-
+$base-path: '/bundles/edge5frontend';
 
 // colors
-$white: #FFF;
+$white: #fff;
 $black: #000;
 
+$orange: #f5520b;
+$orange2: #faaa8d;
+$orange3: #c84f1b;
 
+$grey: #f6f5f3;
+$grey2: #e4e4e0;
+$grey3: #3d3d3b;
+$grey4: #4b4b47;
+$grey5: #8f8ea4;
+$grey6: #e7e3e0;
+$grey7: #42413e;
+
+$green: #a0f3bd;
 
 // fonts & text
 
 // font families
 $base-font: "Roboto", Helvetica, Arial, sans-serif;
-$wallis-font: "Wallis-Handcraftet", "Transat", Helvetica, Arial, sans-serif;
 
 // text
 $base-font-size: 16px;
 $base-line-height: 1.5;
 $base-font-color: $black;
+$font-size: 14px;
 
 $font-size-smaller: 13px;
 $font-size-smallest: 12px;
@@ -34,8 +44,6 @@ $normal: 300;
 $bold: 700;
 
 $z-index-modal: 1000;
-
-
 
 // mesurements
 $site-width: 940px;
@@ -50,34 +58,42 @@ $mobile-gutter-small: 10px;
 $mobile-gutter: 15px;
 $mobile-gutter-large: 30px;
 
-
-
 // sprites & icons
 $icons-spacing:1px;
 $icons2x-spacing:2px;
 
-$icons-dir: "icons";
-$icons2x-dir: "icons2x";
+$icons-dir: 'icons';
+$icons2x-dir: 'icons2x';
 //$sprites: sprite-map($icons-dir + "/*.png", $spacing: $icons-spacing, $layout: horizontal);
 //$sprites2x: sprite-map($icons2x-dir + "/*.png", $spacing: $icons2x-spacing, $layout: horizontal);
 
 
 // Z-index management
 $z-index: (
-		modal              : 200,
-		navigation         : 100,
-		footer             : 90,
-		triangle           : 60,
-		navigation-rainbow : 50,
-		share-type         : 41,
-		share              : 40,
+    modal: 200,
+    navigation: 100,
+    footer: 90,
+    triangle: 60,
+    navigation-rainbow: 50,
+    share-type: 41,
+    share: 40,
 );
 
 @function z-index($key) {
-	@return map-get($z-index, $key);
+    @return map-get($z-index, $key);
 }
 
 @mixin z-index($key) {
-	z-index: z-index($key);
+    z-index: z-index($key);
 }
 
+// QuizContainer
+$joker-size: 50px;
+$countdown-icon-size: 24px;
+
+// RadioInput
+$radio-input-alphabet-size: 26px;
+
+// QuizResult:
+$quizresult-item-circle-size: 91px;
+$quizresult-item-circle-icon-size: 25px;

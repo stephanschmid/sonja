@@ -1,18 +1,18 @@
 
-@function px2percent ($px,$contextSize) {
-	@return ( $px / $contextSize) * 100%;
+@function px2percent ($px, $context-size) {
+    @return ($px / $context-size) * 100%;
 }
 
 @function px2rem($px) {
-	@return ( $px / $base-font-size ) * 1rem;
+    @return ($px / $base-font-size) * 1rem;
 }
 
 @mixin font-size($px) {
-	font-size: ($px);
-	font-size: px2rem($px);
+    font-size: ($px);
+    font-size: px2rem($px);
 }
 
 @mixin line-height($px) {
-	line-height: ($px);
-	line-height: px2rem($px);
+    line-height: ($px);
+    line-height: px2rem($px);
 }

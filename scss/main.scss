@@ -1,39 +1,43 @@
-/*
- * HTML5 Boilerplate
- *
- * What follows is the result of much research on cross-browser styling.
- * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
- * Kroc Camen, and the H5BP dev community and team.
- *
- * Detailed information about this CSS: h5bp.com/css
- *
- * ==|== normalize ==========================================================
- */
+// HTML5 Boilerplate
+//
+// What follows is the result of much research on cross-browser styling.
+// Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+// Kroc Camen, and the H5BP dev community and team.
+//
+// Detailed information about this CSS: h5bp.com/css
+// ==|== normalize ==========================================================
 
-@import "compass";
+@import 'compass';
 
-@import "vendor/reset";
-@import "vendor/normalize";
+@import 'vendor/reset';
+@import 'vendor/normalize';
 
-/* ==|== primary styles =====================================================
-	 Author: Edge5 AG Frontend
-	 ========================================================================== */
+// Author: Edge5 AG Frontend
 
-@import "settings/settings";
+@import 'settings/settings';
 
-@import "mixins/standard_mixins";
-@import "mixins/mediaqueries";
-@import "mixins/px2percent";
-@import "mixins/retina_sprites";
-@import "mixins/triangle";
-@import "mixins/webkit_inline_block_fix";
+@import 'mixins/standard_mixins';
+@import 'mixins/mediaqueries';
+@import 'mixins/px2percent';
+@import 'mixins/retina_sprites';
+@import 'mixins/triangle';
+@import 'mixins/webkit_inline_block_fix';
 
-@import "helpers/fonts";
-@import "helpers/helpers";
-@import "helpers/print";
-@import "helpers/visibility";
+@import 'helpers/fonts';
+@import 'helpers/helpers';
+@import 'helpers/print';
+@import 'helpers/visibility';
 
-@import "styles/0.base";
-@import "styles/motion";
-@import "styles/states";
-@import "styles/1.layout";
+@import 'styles/0.base';
+@import 'styles/motion';
+@import 'styles/states';
+@import 'styles/1.layout';
+
+// Components
+@import '../../components/Navigation/navigation';
+@import '../../components/QuizChoices/QuizChoices';
+@import '../../components/QuizContainer/QuizContainer';
+@import '../../components/QuizDots/QuizDots';
+@import '../../components/QuizIntro/QuizIntro';
+@import '../../components/QuizItemInfo/QuizItemInfo';
+@import '../../components/QuizResult/QuizResult';

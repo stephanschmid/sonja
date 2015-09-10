@@ -1,8 +1,9 @@
 $base-font-size: 15px !default;
 
-@mixin webkit-inline-block-fix($s: $base-font-size){
-	font-size: 0;
-	> * {
-		@include font-size($s);
-	}
+@mixin webkit-inline-block-fix($s: $base-font-size) {
+    font-size: 0;
+
+    > * {
+        @include font-size($s);
+    }
 }
